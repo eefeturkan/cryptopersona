@@ -1006,6 +1006,26 @@ export default function TestPage() {
       : 'bg-[#0A0F29] text-white'}`}
       style={{ WebkitTextSizeAdjust: '100%', WebkitFontSmoothing: 'antialiased' }}>
       
+      {/* iOS 18 için özel stil etiketi */}
+      <style jsx global>{`
+        @supports (-webkit-touch-callout: none) {
+          div, span, h1, h2, h3, h4, h5, h6, p {
+            color: white !important;
+            -webkit-text-fill-color: white !important;
+          }
+          
+          @media (max-width: 844px) {
+            .option-button > div, 
+            .option-text,
+            .question-text {
+              color: white !important;
+              -webkit-text-fill-color: white !important;
+              font-weight: 400 !important; 
+            }
+          }
+        }
+      `}</style>
+      
       {/* Animasyonlu Gradient Arka Plan */}
       <div className={`absolute inset-0 w-full ${darkMode 
         ? 'bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/80 via-[#0A0F29] to-[#0A0F29]' 
@@ -1060,8 +1080,10 @@ export default function TestPage() {
             className="p-8 bg-white/10 backdrop-blur-lg rounded-2xl shadow-xl mb-8 border border-white/10"
           >
             <div className="flex items-center mb-8">
-              <div className="text-4xl mr-4 text-white">{getQuestionEmoji(questions[currentQuestion].text)}</div>
-              <h2 className="text-2xl font-bold text-white">
+              <div className="text-4xl mr-4 text-white" style={{ WebkitTextFillColor: 'white', color: 'white' }}>
+                {getQuestionEmoji(questions[currentQuestion].text)}
+              </div>
+              <h2 className="text-2xl font-bold text-white" style={{ WebkitTextFillColor: 'white', color: 'white' }}>
                 {questions[currentQuestion].text}
               </h2>
             </div>
@@ -1074,12 +1096,15 @@ export default function TestPage() {
                   className={`w-full text-left p-5 bg-white/5 hover:bg-white/10 border-white/10
                     rounded-xl transition-all duration-300 backdrop-blur-sm border option-button
                     ${!questionLoaded ? 'opacity-50 cursor-not-allowed' : 'opacity-100 cursor-pointer hover:scale-102 hover:shadow-lg'}`}
+                  style={{ WebkitAppearance: 'none' }}
                 >
                   <div className="flex items-center">
-                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 mr-4 text-lg font-medium text-white">
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 mr-4 text-lg font-medium text-white" 
+                         style={{ WebkitTextFillColor: 'white', color: 'white' }}>
                       {String.fromCharCode(65 + index)}
                     </div>
-                    <div className="text-lg text-white option-text">
+                    <div className="text-lg text-white option-text" 
+                         style={{ WebkitTextFillColor: 'white', color: 'white' }}>
                       {option.text}
                     </div>
                   </div>
