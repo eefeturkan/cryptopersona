@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
+
+/* iOS metin renk düzeltmeleri */
+@supports (-webkit-touch-callout: none) {
+  .option-button,
+  .option-text,
+  .text-white {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+  }
+  
+  .question-text {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+  }
+} 

@@ -1003,7 +1003,8 @@ export default function TestPage() {
   return (
     <main className={`min-h-screen relative overflow-hidden ${darkMode 
       ? 'bg-[#0A0F29] text-gray-100' 
-      : 'bg-[#0A0F29] text-white'}`}>
+      : 'bg-[#0A0F29] text-white'}`}
+      style={{ WebkitTextSizeAdjust: '100%', WebkitFontSmoothing: 'antialiased' }}>
       
       {/* Animasyonlu Gradient Arka Plan */}
       <div className={`absolute inset-0 w-full ${darkMode 
@@ -1059,32 +1060,30 @@ export default function TestPage() {
             className="p-8 bg-white/10 backdrop-blur-lg rounded-2xl shadow-xl mb-8 border border-white/10"
           >
             <div className="flex items-center mb-8">
-              <span className="text-4xl mr-4" style={{ color: '#f3f4f6' }}>{getQuestionEmoji(questions[currentQuestion].text)}</span>
-              <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-pink-200 question-text">
+              <div className="text-4xl mr-4 text-white">{getQuestionEmoji(questions[currentQuestion].text)}</div>
+              <h2 className="text-2xl font-bold text-white">
                 {questions[currentQuestion].text}
               </h2>
             </div>
             
             <div className="space-y-5">
               {questions[currentQuestion].options.map((option, index) => (
-                <button
+                <div
                   key={index}
                   onClick={() => questionLoaded && handleAnswer(option)}
-                  disabled={!questionLoaded}
                   className={`w-full text-left p-5 bg-white/5 hover:bg-white/10 border-white/10
                     rounded-xl transition-all duration-300 backdrop-blur-sm border option-button
                     ${!questionLoaded ? 'opacity-50 cursor-not-allowed' : 'opacity-100 cursor-pointer hover:scale-102 hover:shadow-lg'}`}
-                  style={{ color: '#f3f4f6' }}
                 >
                   <div className="flex items-center">
-                    <span className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 mr-4 text-lg font-medium text-gray-100" style={{ color: '#f3f4f6' }}>
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 mr-4 text-lg font-medium text-white">
                       {String.fromCharCode(65 + index)}
-                    </span>
-                    <span className="text-lg text-gray-100 option-text" style={{ color: '#f3f4f6' }}>
+                    </div>
+                    <div className="text-lg text-white option-text">
                       {option.text}
-                    </span>
+                    </div>
                   </div>
-                </button>
+                </div>
               ))}
             </div>
           </motion.div>

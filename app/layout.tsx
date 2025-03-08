@@ -16,6 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className="scroll-smooth">
+      <head>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="color-scheme" content="dark" />
+        <meta name="theme-color" content="#0A0F29" />
+      </head>
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   )
