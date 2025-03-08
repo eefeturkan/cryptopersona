@@ -1024,8 +1024,8 @@ export default function TestPage() {
         <div className="relative max-w-4xl mx-auto px-4 py-16">
           {/* Progress Bar */}
           <div className="text-center mb-12">
-            <div className="mb-4 text-xl font-medium flex items-center justify-center">
-              <span className={`${darkMode ? 'bg-white/10 text-gray-200' : 'bg-white/80 text-black'} backdrop-blur-sm px-6 py-2 rounded-full`}>
+            <div className="mb-4 text-xl font-medium text-gray-200 flex items-center justify-center">
+              <span className="bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full">
                 Soru {currentQuestion + 1} / {questions.length}
               </span>
             </div>
@@ -1041,7 +1041,7 @@ export default function TestPage() {
             {currentQuestion > 0 && (
               <button
                 onClick={handlePrevQuestion}
-                className={`mt-4 px-4 py-2 ${darkMode ? 'bg-white/10 hover:bg-white/20 text-gray-200' : 'bg-white/70 hover:bg-white/90 text-black'} rounded-full transition-all duration-300 backdrop-blur-sm`}
+                className="mt-4 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 backdrop-blur-sm"
               >
                 ← Önceki Soru
               </button>
@@ -1056,11 +1056,11 @@ export default function TestPage() {
             exit={{ x: direction > 0 ? -100 : 100, opacity: 0 }}
             transition={{ duration: 0.3 }}
             onAnimationComplete={() => setQuestionLoaded(true)}
-            className={`p-8 ${darkMode ? 'bg-white/10' : 'bg-white/80'} backdrop-blur-lg rounded-2xl shadow-xl mb-8 border border-white/10`}
+            className="p-8 bg-white/10 backdrop-blur-lg rounded-2xl shadow-xl mb-8 border border-white/10"
           >
             <div className="flex items-center mb-8">
-              <span className="text-4xl mr-4">{getQuestionEmoji(questions[currentQuestion].text)}</span>
-              <h2 className={`text-2xl font-bold ${darkMode ? 'bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-pink-200' : 'text-black'}`}>
+              <span className="text-4xl mr-4" style={{ color: '#f3f4f6' }}>{getQuestionEmoji(questions[currentQuestion].text)}</span>
+              <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-pink-200 question-text">
                 {questions[currentQuestion].text}
               </h2>
             </div>
@@ -1071,15 +1071,18 @@ export default function TestPage() {
                   key={index}
                   onClick={() => questionLoaded && handleAnswer(option)}
                   disabled={!questionLoaded}
-                  className={`w-full text-left p-5 ${darkMode ? 'bg-white/5 hover:bg-white/10 text-gray-100' : 'bg-white/80 hover:bg-white/90 text-black'} border-white/10
-                    rounded-xl transition-all duration-300 backdrop-blur-sm border
+                  className={`w-full text-left p-5 bg-white/5 hover:bg-white/10 border-white/10
+                    rounded-xl transition-all duration-300 backdrop-blur-sm border option-button
                     ${!questionLoaded ? 'opacity-50 cursor-not-allowed' : 'opacity-100 cursor-pointer hover:scale-102 hover:shadow-lg'}`}
+                  style={{ color: '#f3f4f6' }}
                 >
                   <div className="flex items-center">
-                    <span className={`w-10 h-10 flex items-center justify-center rounded-full ${darkMode ? 'bg-white/10 text-white' : 'bg-black/10 text-black'} mr-4 text-lg font-medium`}>
+                    <span className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 mr-4 text-lg font-medium text-gray-100" style={{ color: '#f3f4f6' }}>
                       {String.fromCharCode(65 + index)}
                     </span>
-                    <span className="text-lg font-medium">{option.text}</span>
+                    <span className="text-lg text-gray-100 option-text" style={{ color: '#f3f4f6' }}>
+                      {option.text}
+                    </span>
                   </div>
                 </button>
               ))}
