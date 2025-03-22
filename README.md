@@ -1,6 +1,5 @@
 # CryptoPersona - Kripto Kişilik Testi
 
-![CryptoPersona Logo](https://i.ibb.co/PGQm7v6/cryptopersona-logo.png)
 
 Bu proje, kullanıcıların kripto para karakterlerini keşfetmelerine yardımcı olan interaktif bir kişilik testidir. Kullanıcılar bir dizi soruya cevap vererek kendilerine en uygun kripto para karakterini öğrenebilirler.
 
