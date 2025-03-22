@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* iOS metin renk düzeltmeleri */
+@supports (-webkit-touch-callout: none) {
+  .option-button,
+  .option-text,
+  .text-white {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+    opacity: 1 !important;
+    font-weight: normal !important;
+  }
+  
+  .question-text {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+    opacity: 1 !important;
+  }
+}
+
+/* iOS 18 için özel düzeltmeler */
+@media screen and (max-width: 844px) {
+  /* iPhone ve iPad'ler genellikle bu genişliğin altında */
+  .option-button > div, 
+  .option-text,
+  h2,
+  span,
+  div {
+    color-scheme: dark !important;
+    forced-color-adjust: none !important;
+    color: rgba(255, 255, 255, 1) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 1) !important;
+  }
+} 
